@@ -5,6 +5,8 @@ import store from './store'
 import 'amfe-flexible'
 
 //vant引入和使用
+import { Button } from 'vant';
+Vue.use(Button)
 
 Vue.config.productionTip = false
 

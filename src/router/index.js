@@ -9,7 +9,8 @@ const routes = [
     redirect: '/index'
   },
   {
-    path: '/index'
+    path: '/index',
+    component: () => import('../views/index/index.vue')
   },
   {
     path: '/hangzhou'
