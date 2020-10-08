@@ -1,36 +1,31 @@
-const prefix = 'https://m.youxiake.com'
+import axios from 'axios';
 
 const http = {
-    get: function(url, params) {
-        // 判断是否传参数
-        if (params) {
-            // url   'http://www.pudge.wang:3002/api/home/topRatedMovies'
-            // params   {a:1,b:2}   
-            // ->  'http://www.pudge.wang:3002/api/home/topRatedMovies?a=1&b=2'
-            let arr = []
-            Object.keys(params).forEach((item, index) => {
-                    arr.push(item + '=' + params[item])
+    get(url, params) {
+        return new Promise((resolve, reject) => {
+            axios.get(url, params)
+                .then(function(response) {
+                    resolve(response);
                 })
-                // arr = ['a=1', 'b=2']
-            url += '?' + arr.join('&')
-                // 'http://www.pudge.wang:3002/api/home/topRatedMovies?a=1&b=2'
-        }
-        return fetch(prefix + url)
-            .then(response => response.json())
+                .catch(function(error) {
+                    reject(error);
+                });
+
+        });
     },
 
-    post: function(url, params) {
-        // 实例化一个FormData对象
-        let formData = new FormData()
-            // FormData.append(a, 3) 
-        for (let key in params) {
-            formData.append(key, params[key])
-        }
-        return fetch(prefix + url, {
-            method: 'POST',
-            body: formData
-        }).then(response => response.json())
+    post(url, params) {
+        return new Promise((resolve, reject) => {
+            axios.post(url, params)
+                .then(function(response) {
+                    resolve(response);
+                })
+                .catch(function(error) {
+                    reject(error);
+                });
+
+        });
     }
 }
 
-export default http
+export default http;
