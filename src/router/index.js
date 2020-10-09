@@ -16,7 +16,12 @@ const routes = [
     path: '/hangzhou'
   },
   {
-    path: '/meet'
+    path:'/meet',
+    component:()=>import('../views/meet.jx/Meetjx.vue'),
+  },
+  {
+    path:'/meetjx',
+    component:()=>import('../views/meet.jx/Meetjxs.vue')
   },
   {
     path: '/community'
