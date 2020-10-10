@@ -48,13 +48,7 @@
                             <span>{{item.praise}}</span>
                         </p>
                     </div>
-
-                    
                 </li>
-                
-                
-
-                
             </ul>
         </div>
         
@@ -64,7 +58,7 @@
 </template>
 
 <script>
-
+import BetterScroll from 'better-scroll'
 import { getHotList, getTopicList } from '../../utils/api'
 export default {
     data() {
@@ -91,7 +85,12 @@ export default {
             const res = await getTopicList()
             
             this.listtopic = res.data
-            console.log(res.data)
+            // console.log(res.data)
+            await this.$nextTick()
+            let bs = new BetterScroll('.me-main-top', {
+                scrollX:true,
+                click:true
+            })
         },
     },
 }
@@ -105,16 +104,19 @@ export default {
     }
     .me-main1{
         background: white;
-        .van-nav-bar{
+      .van-nav-bar{
+            height: 46px;
            /deep/ .van-nav-bar__text {
                 color: #333333;
                 font-size:16px ;
             }
         }
         .me-main-top{
-            overflow: auto;
+            width:100%;
+            height: 82px;
+            overflow: hidden;
             ul{
-                display: flex;
+                display: inline-flex;
                 
                 
                 li{

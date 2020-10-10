@@ -6,12 +6,19 @@
             <img src="../../assets/images/meetjx/meetJX-2.jpg" alt="">
             <van-search v-model="value" placeholder="夏日海岛推举" />
         </div>
-        <van-tabs v-model="activeName" background="#FFDC40">
+
+        <ul class="me-tabs">
+            <li v-for="(item,index) in list" :key="index" @click="jump(index)" :class="{active:shows==index}">
+                {{item}}
+            </li>
+        </ul>
+        <!-- <van-tabs v-model="activeName" background="#FFDC40" >
             <van-tab title="关注" name="a"></van-tab>
             <van-tab title="发现" name="b"></van-tab>
-            <van-tab title="精选" name="c"></van-tab>
+            <van-tab title="精选" name="c"  ref="jumps" @click="jump"></van-tab>
             <van-tab title="短视频" name="a"></van-tab>
-        </van-tabs>
+        </van-tabs> -->
+
         
 
 
@@ -25,9 +32,26 @@ export default {
    data() {
        return {
         value:'',
-        activeName: 'a'
+        activeName: 'a',
+        list:['关注','发现','精选','短视频'],
+        shows:0
        }
    }, 
+   methods:{
+       jump(index){
+           this.shows = index
+           if(index==2){
+               console.log('fjsdk')
+               this.$router.push({path:'/meet/meetjx'})
+
+            // this.$router.push({name:'meetjx'})
+           }else{
+               this.$router.push({path:'/meet'})
+           }
+       }
+   }
+   
+   
 }
 
 
@@ -60,21 +84,48 @@ export default {
                 height: 36px;
             }   
         }
-       .van-tabs{
-           margin-top: 25px;
-           padding: 15px 45px; 
-          /deep/ .van-tab--active{
-              font-size: 20px;
-              padding-bottom: 5px;
-              font-weight: bold;
-           }
-           
-           /deep/ .van-tab__text{
-              font-size: 19px; 
-              font-weight: 900px;
-              
-           }
+
+        .me-tabs{
+            display: flex;
+             margin-top: 20px;
+            padding: 20px 35px;
+            margin-left: 40px;
+            
+            
+            li{
+                font-size: 19px; 
+                padding-right: 20px;
+                
+            }
+
+            .active{
+                color:red;
+                font-size: 20px;
+                padding-bottom: 15px;
+                font-weight: bold;
+                
+                
+
+            }
         }
+
+
+
+    //    .van-tabs{
+    //        margin-top: 25px;
+    //        padding: 15px 45px; 
+    //       /deep/ .van-tab--active{
+    //           font-size: 20px;
+    //           padding-bottom: 5px;
+    //           font-weight: bold;
+    //        }
+           
+    //        /deep/ .van-tab__text{
+    //           font-size: 19px; 
+    //           font-weight: 900px;
+              
+    //        }
+    //     }
         
           
        }    
