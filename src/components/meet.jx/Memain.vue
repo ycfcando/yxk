@@ -26,30 +26,45 @@
             </div>
         </div>
 
+        
+
         <div class="me-main2">
             <van-nav-bar 
                 left-text="为你推荐"
                 right-text="热门  |  最新 "  
             />
-            <ul class="me2List">
 
-                <li v-for="(item,index) in list" :key='index'>
-                    <img :src="item.imgurl" alt="">
-                    <p class="p1">{{item.mixtitle}}</p>
-                    <p class="p2">{{item.title}}</p>
-                    <div class="me2-info">
-                        <p class="p3">
-                            <img :src="item.head" alt="">
-                            <!-- <span>好久不见</span> -->
-                        </p>
-                        <span class="me2-sp">{{item.reviewers}}</span>
-                        <p class="p4">
-                            <span>赞</span>
-                            <span>{{item.praise}}</span>
-                        </p>
-                    </div>
-                </li>
-            </ul>
+            <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+                <van-list
+                    v-model="loading"
+                    :finished="finished"
+                    finished-text="没有更多了"
+                    @load="onLoad"
+                    
+                >
+                    <ul class="me2List">
+                        <li v-for="(item,index) in list" :key='index'>
+                            <img :src="item.imgurl" alt="" v-lazy="item.imgurl">
+                            <p class="p1">{{item.mixtitle}}</p>
+                            <p class="p2">{{item.title}}</p>
+                            <div class="me2-info">
+                                <p class="p3">
+                                    <img :src="item.head" alt="">
+                                    <!-- <span>好久不见</span> -->
+                                </p>
+                                <span class="me2-sp">{{item.reviewers}}</span>
+                                <p class="p4">
+                                    <span>赞</span>
+                                    <span>{{item.praise}}</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+
+                </van-list>
+            </van-pull-refresh>
+
+           
         </div>
         
     </div>
@@ -58,6 +73,7 @@
 </template>
 
 <script>
+import { Toast } from 'vant';
 import BetterScroll from 'better-scroll'
 import { getHotList, getTopicList } from '../../utils/api'
 export default {
@@ -65,7 +81,10 @@ export default {
         return {
             msg:true,
             list:[],
-            listtopic:[]
+            listtopic:[],
+            loading: false,
+            finished: false,
+            isLoading: false,
         }
     },
     mounted(){
@@ -92,6 +111,31 @@ export default {
                 click:true
             })
         },
+        onLoad() {
+      // 异步更新数据
+      // setTimeout 仅做示例，真实场景中一般为 ajax 请求
+            setTimeout(() => {
+                for (let i = 0; i < 14; i++) {
+                this.list.push(this.list.length + 1);
+                }
+
+            // 加载状态结束
+            this.loading = false;
+
+            // 数据全部加载完成
+            if (this.list.length >= 13) {
+            this.finished = true;
+            }
+        }, 1000);
+    },
+    onRefresh() {
+      setTimeout(() => {
+        Toast('刷新成功');
+        this.isLoading = false;
+        this.count++;
+      }, 1000);
+    },
+        
     },
 }
 </script>

@@ -41,6 +41,7 @@ export default {
        jump(index){
            this.shows = index
            if(index==2){
+               this.shows = index
                console.log('fjsdk')
                this.$router.push({path:'/meet/meetjx'})
 

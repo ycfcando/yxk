@@ -30,6 +30,11 @@ const routes = [
     component:()=>import('../views/meet.jx/Meetjxs.vue')
   },
   {
+    path: '/detail',
+    name:'detail',
+    component:()=>import('../views/detail/Detail.vue')
+  },
+  {
     path: '/community'
   },
   {
