@@ -10,7 +10,21 @@ const routes = [
   },
   {
     path: '/index',
-    component: () => import('../views/index/index.vue')
+    component: () => import('../views/index/index.vue'),
+    children: [
+      {
+        path: '/',
+        redirect: '/week'
+      },
+      {
+        path: '/week',
+        component: () => import('../components/index/week.vue')
+      },
+      {
+        path: '/local',
+        component: () => import('../components/index/local.vue')
+      }
+    ]
   },
   {
     path: '/hangzhou'
