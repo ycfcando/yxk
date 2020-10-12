@@ -7,7 +7,21 @@
           <div class="header__instrument"></div>
           </div>
         <div class="header__avatar"></div>
-        <div class="header__login">去登录/注册
+        <div 
+          class="header__login" 
+          @click="$router.push('/login')"
+          v-if="!user"
+        >
+          去登录/注册
+          <span>
+            新用户注册送388元大礼包
+          </span>
+        </div>
+        <div 
+          class="header__login"
+          v-else
+        >
+          {{ user }}
           <span>
             新用户注册送388元大礼包
           </span>
@@ -156,6 +170,17 @@ export default {
   components: {
     MyTabs,
   },
+
+  computed: {
+    user() {
+      return sessionStorage.getItem('phone');
+    }
+  },
+  created() {
+    if(this.$route.params.phone != ':phone') {
+      sessionStorage.setItem('phone', this.$route.params.phone);
+    }
+  }
   // computed: {
   //   ...mapState({
   //     bannerList: 'bannerList',

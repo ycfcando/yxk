@@ -64,12 +64,16 @@ const routes = [
     component: () => import("../views/travel/Gindex.vue"),
   },
   {
-    path: '/mine',
+    path: '/mine/:phone',
     component: () => import ('../views/hz.sy.mine/Home.vue')
   },
   {
     path: '/detail/:id',
     component: () => import ('../views/hz.sy.mine/Detail.vue')
+  },
+  {
+    path: '/login',
+    component: () => import ('../views/login/login.vue')
   }
 ];
 

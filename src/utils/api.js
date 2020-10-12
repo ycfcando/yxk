@@ -56,3 +56,12 @@ export function getBanner(params) {
     return http.get('/api/lines/userrecommends', params)
 }
 
+//login
+export function getYzm(params) {
+  return http.post('http://www.pudge.wang:3001/register/getCode', params)
+}
+
+export function login(params) {
+  return http.post('http://www.pudge.wang:3001/register', params)
+}
+

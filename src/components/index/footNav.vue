@@ -45,7 +45,7 @@ export default {
           img: require('../../assets/icon/index/wode1.png'),
           imgH: require('../../assets/icon/index/wode2.png'),         
           name: '我的',
-          path: '/mine'
+          path: '/mine/:phone'
         }
       ],
       bool: 0
