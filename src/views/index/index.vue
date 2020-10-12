@@ -1,9 +1,8 @@
 <template>
   <main class="index">
-
     <div class="searchCity">
-      <span>杭州<van-icon name="arrow-down"/></span>
-      <van-search placeholder="梅里转山节" class="search"/>
+      <span>杭州<van-icon name="arrow-down" /></span>
+      <van-search placeholder="梅里转山节" class="search" />
     </div>
 
     <div class="hotSearch">
@@ -15,13 +14,9 @@
     </div>
 
     <div class="banner">
-      <van-swipe 
-      class="my-swipe" 
-      :autoplay="3000"
-      indicator-color="#fed101"
-      >
+      <van-swipe class="my-swipe" :autoplay="3000" indicator-color="#fed101">
         <van-swipe-item v-for="(val, ind) in bannerItem" :key="ind">
-          <img :src="val.image">
+          <img :src="val.image" />
         </van-swipe-item>
       </van-swipe>
     </div>
@@ -38,7 +33,11 @@
     </div>
 
     <van-grid class="secondNav">
-      <van-grid-item v-for="(val, ind) in staticData.secondNav" :key="ind" class="wrap">
+      <van-grid-item
+        v-for="(val, ind) in staticData.secondNav"
+        :key="ind"
+        class="wrap"
+      >
         <div>
           <span>{{ val.title }}</span>
           <span>{{ val.content }}</span>
@@ -48,11 +47,11 @@
 
     <div class="week-local">
       <div class="tabwrap">
-        <button 
-          v-for="(val, ind) in tabList" 
+        <button
+          v-for="(val, ind) in tabList"
           :key="ind"
           @click="pathTab(ind)"
-          :class="{active: act==ind}"
+          :class="{ active: act == ind }"
         >
           {{ val.typeName }}
         </button>
@@ -62,44 +61,43 @@
       </div>
     </div>
 
-    <shop/>
+    <shop />
 
-    <minority/>
+    <minority />
 
-    <dest/>
+    <dest />
 
-    <flow-tab/>
+    <flow-tab />
   </main>
 </template>
 
 <script>
-
-import { getIcon } from '../../utils/api';
-import shop from '../../components/index/shop';
-import minority from '../../components/index/minority';
-import dest from '../../components/index/dest';
-import flowTab from '../../components/index/flowTab';
+import { getIcon } from "../../utils/api";
+import shop from "../../components/index/shop";
+import minority from "../../components/index/minority";
+import dest from "../../components/index/dest";
+import flowTab from "../../components/index/flowTab";
 
 export default {
   data() {
     return {
       // bannerItem: [],
       staticData: {},
-      act: 0
-    }
+      act: 0,
+    };
   },
 
   mounted() {
     //index数据
-    this.$store.dispatch('getIndex');
+    this.$store.dispatch("getIndex");
 
     getIcon()
-    .then(res => {
-      this.staticData = res.data;
-    })
-    .catch(error => {
-      console.log(error);
-    });
+      .then((res) => {
+        this.staticData = res.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 
   computed: {
@@ -114,7 +112,7 @@ export default {
       } else {
         return [];
       }
-    }
+    },
   },
 
   methods: {
@@ -132,10 +130,9 @@ export default {
     shop,
     minority,
     dest,
-    flowTab
-  }
-
-}
+    flowTab,
+  },
+};
 </script>
 
 <style lang="less" scoped>
@@ -192,7 +189,7 @@ export default {
   display: flex;
   justify-content: center;
   background-image: linear-gradient(#ffdd40 80%, white 80%, white 100%);
-  .my-swipe  {
+  .my-swipe {
     width: 355px;
     border-radius: 5px;
     .van-swipe-item {
@@ -207,7 +204,7 @@ export default {
   /deep/ .van-swipe__indicator {
     opacity: 1;
     background-color: #ddd;
-    transition: background-color .2s;
+    transition: background-color 0.2s;
     border-radius: 6px;
   }
   /deep/ .van-swipe__indicator--active {
@@ -270,7 +267,7 @@ export default {
       font-size: 16px;
       font-weight: 900;
     }
-    .active {    
+    .active {
       background-color: #fff;
     }
   }

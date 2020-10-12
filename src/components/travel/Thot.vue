@@ -46,22 +46,17 @@ export default {
     tongList: Object,
     default: {},
   },
-  data() {
-    return {
-      // urlList: [
-      //   require("../../assets/images/hot1.jpg"),
-      //   require("../../assets/images/hot2.jpg"),
-      //   require("../../assets/images/hot3.jpg"),
-      //   require("../../assets/images/hot1.jpg"),
-      //   require("../../assets/images/hot2.jpg"),
-      //   require("../../assets/images/hot3.jpg"),
-      // ],
-    };
-  },
   computed: {
     list() {
       if (this.tongList) {
-        return this.tongList.productList;
+        // return this.tongList.productList;
+        if (this.tongList.productList) {
+          return this.tongList.productList;
+        } else if (this.tongList.topProduct) {
+          return this.tongList.topProduct;
+        } else {
+          return [];
+        }
       } else {
         return [];
       }

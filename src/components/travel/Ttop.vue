@@ -1,20 +1,20 @@
 <template>
   <div class="t-top">
     <div class="t-top-title">
-      <img src="../../assets/images/topr.png" alt="" class="t-top-r" />
-      <span>周边游</span>
+      <img
+        src="../../assets/images/topr.png"
+        alt=""
+        class="t-top-r"
+        @click="tui"
+      />
+      <span>{{ travelList }}</span>
       <img src="../../assets/images/topl.png" alt="" class="t-top-l" />
     </div>
     <div class="t-top-sou">搜索目的地/关键词</div>
     <div class="s">
       <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-        <van-swipe-item v-for="(item, index) in bannerList" :key="index">
+        <van-swipe-item v-for="(item, index) in list" :key="index">
           <img :src="item" alt="" />
-          <!-- <van-swipe-item
-          v-for="(item, index) in tongList.flashList"
-          :key="index"
-        >
-          <img :src="item.image" alt="" /> -->
         </van-swipe-item>
       </van-swipe>
     </div>
@@ -23,16 +23,26 @@
 
 <script>
 export default {
-  props: ["tongList"],
-  data() {
-    return {
-      bannerList: [
-        require("../../assets/images/b1.jpg"),
-        require("../../assets/images/b2.jpg"),
-        require("../../assets/images/b3.jpg"),
-        require("../../assets/images/b4.jpg"),
-      ],
-    };
+  props: ["tongList", "travelList"],
+  computed: {
+    list() {
+      if (this.tongList) {
+        if (this.tongList.flashList) {
+          return this.tongList.flashList;
+        } else if (this.tongList.banner) {
+          return this.tongList.banner;
+        } else {
+          return [];
+        }
+      } else {
+        return [];
+      }
+    },
+  },
+  methods: {
+    tui() {
+      this.$router.go(-1);
+    },
   },
 };
 </script>

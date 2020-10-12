@@ -17,18 +17,18 @@ const routes = [
     component: () => import('../views/index/index.vue'),
     children: [
       {
-        path: '/',
-        redirect: '/week'
+        path: "/",
+        redirect: "/week",
       },
       {
-        path: '/week',
-        component: () => import('../components/index/week.vue')
+        path: "/week",
+        component: () => import("../components/index/week.vue"),
       },
       {
-        path: '/local',
-        component: () => import('../components/index/local.vue')
-      }
-    ]
+        path: "/local",
+        component: () => import("../components/index/local.vue"),
+      },
+    ],
   },
   {
     path: "/hangzhou",
@@ -43,8 +43,16 @@ const routes = [
     path: "/mine",
   },
   {
-    path: "/travel",
-    component: () => import("../views/travel/Index.vue")
+    path: "/Zindex",
+    component: () => import("../views/travel/Zindex.vue"),
+  },
+  {
+    path: "/Cindex",
+    component: () => import("../views/travel/Cindex.vue"),
+  },
+  {
+    path: "/Gindex",
+    component: () => import("../views/travel/Gindex.vue"),
   },
 ];
 

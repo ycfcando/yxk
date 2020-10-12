@@ -7,9 +7,19 @@ import store from "./store";
 import "amfe-flexible";
 
 //vant引入和使用
-import { 
-  Search, Icon, Swipe, SwipeItem, Grid, GridItem, Tabbar, TabbarItem, List, Cell, Button
-} from 'vant';
+import {
+  Search,
+  Icon,
+  Swipe,
+  SwipeItem,
+  Grid,
+  GridItem,
+  Tabbar,
+  TabbarItem,
+  List,
+  Cell,
+} from "vant";
+Vue.use(Cell);
 Vue.use(Search);
 Vue.use(Icon);
 Vue.use(Swipe);
@@ -20,12 +30,13 @@ Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(List);
 Vue.use(Cell);
-Vue.use(Button);
 
 //reset重置样式文件
 import './assets/style/reset.less';
 //fxx轮播图样式
 import "./assets/style/travel/banner.css";
+
+import "./assets/style/travel/public.css";
 
 Vue.config.productionTip = false;
 
