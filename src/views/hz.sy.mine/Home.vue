@@ -56,15 +56,41 @@
         </div>
       </div>
     </div>
-    <!-- <div class="mUserCenterRecommend">
-      <div class="mUserCenterRecommend__head"></div>
+    <div class="mUserCenterRecommend">
+      <div class="mUserCenterRecommend__head">
+        <img src="../../assets/images/精选推荐@2x.png">
+        <span>精选推荐</span>
+      </div>
+    </div>
+    <my-tabs />
+    <!-- <div class="mUserCenterRecommend__body">
+      <ul>
+        <li v-for="(item,index) in bannerList" :key="index" class="mUserCenterRecommend__line">
+          <a href="#" >
+            <span></span>
+            <div class="line__pic" >
+              <img src="../../assets/images/假图@2x.png" alt="">
+            </div>
+            <div>
+              <div class="line__title">{{item.name}}</div>
+              <div class="gtdays">跟团游{{item.theme_label}}{{item.days}}</div>
+              <div class="minprice_registered">
+                <span class="minprice">￥{{item.minprice}}起</span>
+                <span class="registered">{{item.people_count}}人已报名</span>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+      
     </div> -->
   </div>
     
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+// import { mapState, mapActions } from 'vuex'
+import MyTabs from "../../components/hz.sy.mine/Tabsdata.vue";
 export default {
   data() {
       return {
@@ -127,19 +153,22 @@ export default {
           ],
       }
   },
-  computed: {
-    ...mapState({
-      bannerList: 'bannerList',
-    })
+  components: {
+    MyTabs,
   },
-  mounted() {
-    this.getBannerList()
-  },
-  methods: {
-    ...mapActions([
-      'getBannerList'
-    ]),
-  }
+  // computed: {
+  //   ...mapState({
+  //     bannerList: 'bannerList',
+  //   })
+  // },
+  // mounted() {
+  //   this.getBannerList()
+  // },
+  // methods: {
+  //   ...mapActions([
+  //     'getBannerList'
+  //   ]),
+  // }
 };
 </script>
 <style lang='less' scoped>
@@ -313,16 +342,90 @@ export default {
       }
     }
   }
-  // .mUserCenterRecommend{
-  //   display: -webkit-box;
-  //   display: -ms-flexbox;
-  //   display: flex;
-  //   align-items: center;
-  //   width: 100%;
-  //   .mUserCenterRecommend__head {
-  //     width: 100%;
-  //     height: 50px;
-  //     background: url(../assets/mian/精选推荐@2x.png) 50% no-repeat;
+  .mUserCenterRecommend{
+    // display: -webkit-box;
+    // display: -ms-flexbox;
+    // display: flex;
+    // align-items: center;
+    // width: 100%;
+    .mUserCenterRecommend__head {
+      width: 100%;
+      height: 50px;
+      position: relative;
+      img{
+        width: 129px;
+        height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+      }
+      span{
+        font-size: 18px;
+        padding: 40%;
+      }
+    }
+  }
+  // .mUserCenterRecommend__body {
+  //   overflow: hidden;
+  //   .mUserCenterRecommend__line {
+  //     width: 167px;
+  //     margin: 10px;
+  //     background-color: #fff;
+  //     float: left;
+  //     border-radius: 14px;
+  //     // .line__pic {
+  //     //   position: relative;
+  //     //   width: 187px;
+  //     //   height: 60px;
+  //     //   border-radius: 30px;
+  //     //   background: #fff9db 50% no-repeat;
+  //     //   background-size: cover;
+  //     //   box-sizing: border-box;
+  //     // }
+  //     img{
+  //       position: relative;
+  //       width: 100%;
+  //       height: 100px;
+  //       border-top-left-radius: 14px;
+  //       border-top-right-radius: 14px;
+  //       background-size: cover;
+  //       box-sizing: border-box;
+  //     }
+  //     .line__title {
+  //       display: -webkit-box;
+  //       -webkit-box-orient: vertical;
+  //       -webkit-line-clamp: 2;
+  //       margin-top: .1rem;
+  //       padding: 0 .1rem;
+  //       height: .67rem;
+  //       line-height: .34rem;
+  //       font-size: .28rem;
+  //       color: #333;
+  //       overflow: hidden;
+  //     }
+  //     .gtdays{
+  //       margin-top: 10px;
+  //       font-size: 10px;
+  //     }
+  //     .minprice_registered{
+  //       position: relative;
+  //       .minprice{
+  //       font-size: 16px;
+  //       color: #ff7100;
+  //       }
+  //       .registered{
+  //         position: absolute;
+  //         right: 6px;
+  //         bottom: 4px;
+  //         padding: 3px 1px;
+  //         font-size: 12px;
+  //         color: #999;
+  //         background: #eee;
+  //       }     
+  //     }
   //   }
   // }
 }  

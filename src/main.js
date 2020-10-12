@@ -6,9 +6,12 @@ import './assets/style/publi.less'
 import 'amfe-flexible'
 
 //vant引入和使用
-import { Button } from 'vant';
-Vue.use(Button)
+import { Button, Icon, List, Lazyload } from 'vant';
 
+Vue.use(List);
+Vue.use(Button);
+Vue.use(Icon);
+Vue.use(Lazyload);
 Vue.config.productionTip = false
 
 new Vue({

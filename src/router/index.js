@@ -13,7 +13,9 @@ const routes = [{
             import ('../views/index/index.vue')
     },
     {
-        path: '/hangzhou'
+        path: '/hangzhou',
+        component: () =>
+            import ('../views/hz.sy.mine/HangZhou.vue')
     },
     {
         path: '/meet'
@@ -25,7 +27,12 @@ const routes = [{
         path: '/mine',
         component: () =>
             import ('../views/hz.sy.mine/Home.vue')
-    }
+    },
+    {
+        path: '/detail/:id',
+        component: () =>
+            import ('../views/hz.sy.mine/Detail.vue')
+    },
 ]
 
 const router = new VueRouter({
