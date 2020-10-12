@@ -56,7 +56,7 @@
                 </ul>
             </div>
             <div class="ul-libertinism">
-                <ul>
+                <ul>   
                     <li v-for="(item, index) in ul_libertinism_li" 
                         :key="index" 
                         :class="{ libertinism_active: libertinism_activeIndex === index }"
