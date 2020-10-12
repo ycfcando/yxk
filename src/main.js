@@ -1,12 +1,14 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import 'amfe-flexible'
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+
+//移动端适配
+import "amfe-flexible";
 
 //vant引入和使用
 import { 
-  Search, Icon, Swipe, SwipeItem, Grid, GridItem, Tabbar, TabbarItem, List, Cell
+  Search, Icon, Swipe, SwipeItem, Grid, GridItem, Tabbar, TabbarItem, List, Cell, Button
 } from 'vant';
 Vue.use(Search);
 Vue.use(Icon);
@@ -18,14 +20,17 @@ Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(List);
 Vue.use(Cell);
+Vue.use(Button);
 
 //reset重置样式文件
 import './assets/style/reset.less';
+//fxx轮播图样式
+import "./assets/style/travel/banner.css";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
-  render: h => h(App)
-}).$mount('#app')
+  render: (h) => h(App),
+}).$mount("#app");

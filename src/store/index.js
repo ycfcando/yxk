@@ -1,14 +1,15 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
-import { getFlow, getIndex } from '../utils/api';
+import { getFlow, getIndex, getTravel } from '../utils/api';
 
 export default new Vuex.Store({
   state: {
     indexData: {},
-    flowData: []
+    flowData: [],
+    tongList: []
   },
   mutations: {
     //index数据
@@ -19,6 +20,12 @@ export default new Vuex.Store({
     //flow数据
     getFlow(state, payload) {
       state.flowData = state.flowData.concat(payload);
+    },
+
+    //travel数据
+    getTongList(state, payload) {
+      state.tongList = payload.data;
+      console.log(state.tongList);
     }
   },
   actions: {
@@ -42,8 +49,13 @@ export default new Vuex.Store({
       .catch(error => {
         console.log(error);
       });
+    },
+
+    //travel数据
+    async getTongList({ commit }) {
+      const res = await getTravel();
+      commit("getTongList", res.data);
     }
   },
-  modules: {
-  }
-})
+  modules: {},
+});

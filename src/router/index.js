@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const originalPush = VueRouter.prototype.push
 
@@ -9,8 +9,8 @@ VueRouter.prototype.push = function push(location) { return originalPush.call(th
 
 const routes = [
   {
-    path: '/',
-    redirect: '/index'
+    path: "/",
+    redirect: "/index",
   },
   {
     path: '/index',
@@ -31,21 +31,27 @@ const routes = [
     ]
   },
   {
-    path: '/hangzhou'
+    path: "/hangzhou",
   },
   {
-    path: '/meet'
+    path: "/meet",
   },
   {
-    path: '/community'
+    path: "/community",
   },
   {
-    path: '/mine'
-  }
-]
+    path: "/mine",
+  },
+  {
+    path: "/travel",
+    component: () => import("../views/travel/Index.vue"),
+
+
+  },
+];
 
 const router = new VueRouter({
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
