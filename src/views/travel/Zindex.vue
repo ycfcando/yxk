@@ -1,6 +1,6 @@
 <template>
   <div>
-    <my-top :tongList="tongList" />
+    <my-top :tongList="tongList" :travelList="travelList.Z"/>
     <my-hot :tongList="tongList.popularPlay" />
     <my-day :plate="tongList.plate" />
   </div>
@@ -19,7 +19,7 @@ export default {
     MyHot,
     MyDay,
   },
-  computed: mapState({ tongList: "tongList" }),
+  computed: mapState({ tongList: "tongList", travelList: "travelList" }),
   mounted() {
     this.$store.dispatch("getTongList");
   },

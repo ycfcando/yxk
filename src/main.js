@@ -18,7 +18,9 @@ import {
   TabbarItem,
   List,
   PullRefresh,
+  Cell,
 } from "vant";
+Vue.use(Cell);
 Vue.use(Search);
 Vue.use(Icon);
 Vue.use(Swipe);

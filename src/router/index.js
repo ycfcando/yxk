@@ -39,8 +39,16 @@ const routes = [
     path: "/mine",
   },
   {
-    path: "/travel",
-    component: () => import("../views/travel/Index.vue"),
+    path: "/Zindex",
+    component: () => import("../views/travel/Zindex.vue"),
+  },
+  {
+    path: "/Cindex",
+    component: () => import("../views/travel/Cindex.vue"),
+  },
+  {
+    path: "/Gindex",
+    component: () => import("../views/travel/Gindex.vue"),
   },
 ];
 
