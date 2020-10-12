@@ -1,7 +1,7 @@
 <template>
   <div class="local">
     <div>
-      <div class="top">
+      <div class="top" v-if="localData.upList">
         <article class="left">
           <img :src="localData.upList[0].image">
           <p>{{ localData.upList[0].subTitle }}</p>
