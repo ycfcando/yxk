@@ -47,3 +47,11 @@ export function getHotList(url, params) {
 export function getTopicList(url, params) {
   return http.get('https://www.fastmock.site/mock/141b01ad0a4a46db6d5c4c5b1d9a899b/yxk/meet/topiclist', params);
 }
+// mine页面请求数据
+export function getBanner(params) {
+    return http.get('/api/lines/userrecommends', params)
+}
+// mine页数据
+export function getDetailInfo(data) {
+    return http.get('/api/lines/lineStatus', data)
+}

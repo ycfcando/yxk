@@ -28,7 +28,8 @@ export default {
         {
           img: require('../../assets/icon/index/hangzhou1.png'),
           imgH: require('../../assets/icon/index/hangzhou2.png'),
-          name: '杭州'
+          name: '杭州',
+          path: '/hangzhou'
         },
         {
           img: require('../../assets/icon/index/yujian1.png'),
@@ -43,7 +44,8 @@ export default {
         {
           img: require('../../assets/icon/index/wode1.png'),
           imgH: require('../../assets/icon/index/wode2.png'),         
-          name: '我的'
+          name: '我的',
+          path: '/mine'
         }
       ],
       bool: 0

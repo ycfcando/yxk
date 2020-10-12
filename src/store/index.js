@@ -8,6 +8,8 @@ import {
   getTravelT,
   getTravelG,
   getTravelC,
+  getBanner, 
+  getDetailInfo
 } from "../utils/api";
 
 export default new Vuex.Store({
@@ -22,6 +24,9 @@ export default new Vuex.Store({
       G:"国内游",
       C:"出境游"
     },
+    bannerList: [], //我的页面请求数据
+    // page: 1,
+    detailInfo: {}
   },
   mutations: {
     //index数据
@@ -47,6 +52,18 @@ export default new Vuex.Store({
       state.jingList = payload.data;
       console.log(state.jingList);
     },
+    //mine数据1
+    getBannerList(state, payload) {
+      // console.log(payload);
+      // state.bannerList = state.bannerList.concat(payload)
+      state.bannerList = payload
+          // state.page++
+    },
+    //mine数据2
+    getDetail(state, payload) {
+        console.log(payload)
+        state.detailInfo = payload
+    }
   },
   actions: {
     //index数据
@@ -84,6 +101,24 @@ export default new Vuex.Store({
       const res = await getTravelC();
       commit("getJingList", res.data);
     },
+    //mine数据1
+    async getBannerList({ commit }, payload) {
+      // console.log(payload)
+      const res = await getBanner(payload)
+
+      commit('getBannerList', res.data.data)
+    },
+    //mine 数据2
+    async getDetail({ commit }, payload) {
+        // const res = await getDetailInfo(payload)
+        console.log(payload)
+        const res = await getDetailInfo({
+            productId: payload.productId
+        })
+
+        commit('getDetail', res)
+        console.log(res)
+    }
   },
   modules: {},
 });

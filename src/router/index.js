@@ -32,6 +32,7 @@ const routes = [
   },
   {
     path: "/hangzhou",
+    component: () => import ('../views/hz.sy.mine/HangZhou.vue')
   },
   {
     path:'/meet',
@@ -51,9 +52,6 @@ const routes = [
     path: "/community",
   },
   {
-    path: "/mine",
-  },
-  {
     path: "/Zindex",
     component: () => import("../views/travel/Zindex.vue"),
   },
@@ -65,6 +63,14 @@ const routes = [
     path: "/Gindex",
     component: () => import("../views/travel/Gindex.vue"),
   },
+  {
+    path: '/mine',
+    component: () => import ('../views/hz.sy.mine/Home.vue')
+  },
+  {
+    path: '/detail/:id',
+    component: () => import ('../views/hz.sy.mine/Detail.vue')
+  }
 ];
 
 const router = new VueRouter({
