@@ -34,7 +34,18 @@ const routes = [
     path: "/hangzhou",
   },
   {
-    path: "/meet",
+    path:'/meet',
+    component:()=>import('../views/meet.jx/Meetjx.vue'),
+  },
+  {
+    path:'/meet/meetjx',
+    name:'meetjx',
+    component:()=>import('../views/meet.jx/Meetjxs.vue')
+  },
+  {
+    path: '/detail',
+    name:'detail',
+    component:()=>import('../views/detail/Detail.vue')
   },
   {
     path: "/community",

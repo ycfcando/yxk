@@ -38,3 +38,12 @@ export function getTravelG(url, params) {
 export function getTravelC(url, params) {
   return http.get("api/channel/en?sitecode=1&city_id=1", params);
 }
+
+//遇见数据1
+export function getHotList(url, params) {
+  return http.get('https://www.fastmock.site/mock/141b01ad0a4a46db6d5c4c5b1d9a899b/yxk/meet/hotlist', params);
+}
+//遇见数据2
+export function getTopicList(url, params) {
+  return http.get('https://www.fastmock.site/mock/141b01ad0a4a46db6d5c4c5b1d9a899b/yxk/meet/topiclist', params);
+}
