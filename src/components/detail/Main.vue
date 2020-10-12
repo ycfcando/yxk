@@ -3,8 +3,8 @@
         <div class="mLine-price">
             <div class="ml-left">
                 <span class="span1">￥</span>
-                <p>3580</p>
-                <span class="span2">起/成人</span>
+                <p v-if="detailInfo.data">{{ detailInfo.data.Price }}</p>
+                <span class="span2">/成人</span>
             </div>
             <div class="ml-right">
                 <span>送35.8游侠币</span>
@@ -24,13 +24,14 @@
 
         </div>
 
-        <div class="mLine_title">
+        <div class="mLine_title" v-if="detailInfo.data">
             <div class="mLine_pname">
-                【金秋党岭轻户外】党岭葫芦海+雅拉友措轻徒步，丹巴中路藏寨-网红墨石公园-塔公草原-雅拉雪山-玛尼河谷-新都桥，
-                金秋川西7日小众轻户外（无需露营）
+                {{ detailInfo.data.Ptitle }}
             </div>
 
-            <div class="sname">《小众秘境轻徒步》去过的人不到1%，真正人少景美原生态</div>
+            <div class="sname">
+                {{ detailInfo.data.Pdesc }}
+            </div>
 
             <ul class="title__liangdian">
                 <li>休闲式轻户外</li>
@@ -303,6 +304,12 @@ export default {
         return {
         active: 2,
     };
+  },
+
+  computed: {
+    detailInfo() {
+        return this.$store.state.detailInfo;
+    }
   }
   
 }

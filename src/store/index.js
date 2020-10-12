@@ -59,10 +59,9 @@ export default new Vuex.Store({
       state.bannerList = payload
           // state.page++
     },
-    //mine数据2
-    getDetail(state, payload) {
-        console.log(payload)
-        state.detailInfo = payload
+    //detail数据
+    getDetailInfo(state, payload) {
+        state.detailInfo = payload;
     }
   },
   actions: {
@@ -108,16 +107,12 @@ export default new Vuex.Store({
 
       commit('getBannerList', res.data.data)
     },
-    //mine 数据2
-    async getDetail({ commit }, payload) {
-        // const res = await getDetailInfo(payload)
-        console.log(payload)
-        const res = await getDetailInfo({
-            productId: payload.productId
-        })
+    //detail 数据
+    async getDetailInfo({ commit }, payload) {
+      // const res = await getDetailInfo(payload)
+      const res = await getDetailInfo('', {pid: payload});
 
-        commit('getDetail', res)
-        console.log(res)
+      commit('getDetailInfo', res.data);
     }
   },
   modules: {},

@@ -71,9 +71,10 @@ export default {
     padding-bottom: 15px;
     li {
       width: 125px;
+      height: 100%;
       flex-wrap: nowrap;
       flex-shrink: 0;
-      background-size: 100%;
+      background-size: 125px 152px;
       position: relative;
       text-align: center;
       background: #ccc;

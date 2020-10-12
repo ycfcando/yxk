@@ -16,6 +16,10 @@ export default {
         DeTail,
         MaIn,
         FooTer
+    },
+
+    mounted() {
+        this.$store.dispatch('getDetailInfo', this.$route.params.id);
     }
 }
 </script>

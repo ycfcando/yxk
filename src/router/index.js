@@ -44,7 +44,7 @@ const routes = [
     component:()=>import('../views/meet.jx/Meetjxs.vue')
   },
   {
-    path: '/detail',
+    path: '/detail/:id',
     name:'detail',
     component:()=>import('../views/detail/Detail.vue')
   },

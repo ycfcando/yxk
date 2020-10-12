@@ -17,14 +17,14 @@
       :offset="0"
       @load="onLoad"
       class="content" 
-      v-if="flowData && flowData[0]"
+      v-if="flowData[0] && flowData[0].dataDetail"
     >
       <van-cell
         v-for="(val, ind) in flowData"
         :key="ind"
         class="van-clearfix"
       >
-        <li>
+        <li @click="detail(val.dataDetail.pid)">
           <div class="img" :class="{imgBig: ind == 0}">
             <!-- <img 
               :src="val.dataDetail.image" 
@@ -137,6 +137,10 @@ export default {
         type: this.cType,
         page: this.count
       });
+    },
+
+    detail(id) {
+      this.$router.push('/detail/'+ id);
     }
   }
 }

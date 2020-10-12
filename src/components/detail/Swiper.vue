@@ -1,7 +1,7 @@
 <template>
     <div class="swiper">
         <div class="tup">
-            <p class="p1">
+            <p class="p1" @click="$router.go(-1)">
               <van-icon name="arrow-left" />  
             </p>
             <p class="p2">

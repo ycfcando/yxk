@@ -24,6 +24,10 @@ export function getFlow(url, params) {
   return http.get("/api/index/flowrecommend", params);
 }
 
+export function getDetailInfo(url, params) {
+  return http.get("/api/lines/lineStatus", params);
+}
+
 //travel
 //同城游
 export function getTravelT(url, params) {
@@ -51,7 +55,4 @@ export function getTopicList(url, params) {
 export function getBanner(params) {
     return http.get('/api/lines/userrecommends', params)
 }
-// mine页数据
-export function getDetailInfo(data) {
-    return http.get('/api/lines/lineStatus', data)
-}
+
