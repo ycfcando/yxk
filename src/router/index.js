@@ -44,9 +44,7 @@ const routes = [
   },
   {
     path: "/travel",
-    component: () => import("../views/travel/Index.vue"),
-
-
+    component: () => import("../views/travel/Index.vue")
   },
 ];
 

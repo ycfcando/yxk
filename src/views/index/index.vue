@@ -27,7 +27,11 @@
     </div>
 
     <div class="mainNav">
-      <div v-for="(val, ind) in staticData.icon" :key="ind">
+      <div 
+        v-for="(val, ind) in staticData.icon" 
+        :key="ind"
+        @click="travelTab(val.path)"
+      >
         <img :src="val.img">
         <span>{{ val.name }}</span>
       </div>
@@ -117,6 +121,10 @@ export default {
     pathTab(ind) {
       this.act = ind;
       ind ? this.$router.push('/local') : this.$router.push('/week');
+    },
+
+    travelTab(path) {
+      this.$router.push(path);
     }
   },
 
