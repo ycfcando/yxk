@@ -28,7 +28,8 @@ import {
   NavBar,
   Toast,
   Lazyload,
-  PullRefresh
+  PullRefresh,
+  Image as VanImage
 } from "vant";
 Vue.use(Cell);
 Vue.use(Search);
@@ -51,6 +52,7 @@ Vue.use(NavBar);
 Vue.use(Toast);
 Vue.use(Lazyload);
 Vue.use(PullRefresh);
+Vue.use(VanImage);
 
 //reset重置样式文件
 import './assets/style/reset.less';

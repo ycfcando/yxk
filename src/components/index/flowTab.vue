@@ -5,6 +5,7 @@
         v-for="(val, ind) of flowTab"
         :key="ind"
         @click="changeType(type[ind])"
+        :class="{act: cType == type[ind]}"
       >
         {{ val.typeName }}
       </span>
@@ -25,7 +26,16 @@
       >
         <li>
           <div class="img" :class="{imgBig: ind == 0}">
-            <img :src="val.dataDetail.image" :class="{imgBig: ind == 0}">
+            <!-- <img 
+              :src="val.dataDetail.image" 
+              :class="{imgBig: ind == 0}"
+            > -->
+            <van-image
+              lazy-load
+              :src="val.dataDetail.image" 
+              :class="{imgBig: ind == 0}"
+              class="image"
+            />
             <span>{{ val.dataDetail.placeLabel }}</span>
           </div>
           <p v-if="ind != 0">{{ val.dataDetail.title }}</p>
@@ -59,7 +69,8 @@ export default {
       finished: false,
       count: 1,
       type: [1],
-      cType: 1
+      cType: 1,
+      lasy: 'https://img.yzcdn.cn/vant/apple-1.jpg'
     }
   },
 
@@ -145,6 +156,10 @@ export default {
       flex-shrink: 0;
       font-size: 14px;
     }
+    .act {
+      color: #e39e30;
+      font-weight: 600;
+    }
   }
   .content {
     display: flex;
@@ -162,7 +177,7 @@ export default {
         .img {
           height: 130px;
           position: relative;
-          img {
+          .image {
             display: block;
             width: 100%;
             height: 130px;
