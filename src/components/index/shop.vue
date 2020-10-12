@@ -2,7 +2,11 @@
   <div class="shop">
     <div class="top">
       <div class="wrap">
-        <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+        <van-swipe 
+          class="my-swipe" 
+          :autoplay="3000" 
+          indicator-color="white"
+        >
           <van-swipe-item v-for="(val, ind) in flashSales" :key="ind">
             <div>
               <h4>{{ val.title }}</h4>

@@ -13,6 +13,7 @@
     <van-swipe 
       class="my-swipe"
       indicator-color="white"
+      :loop="false"
     >
       <van-swipe-item 
         v-for="(val, ind) in item" 
