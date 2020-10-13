@@ -33,7 +33,10 @@
           </li>
           <li>
             <p><img :src="mrqd"></p>
-            <p>每日签到</p> 
+            <van-cell title="每日签到" :value="date" @click="show = true" />
+            <van-calendar v-model="show" @confirm="onConfirm" />
+            
+            <!-- <p>每日签到</p>  -->
           </li>
         </ul>
       </div>
@@ -57,13 +60,13 @@
       <div class="mUserCenterService__head">我的服务</div>
       <div class="mUserCenterService__container">
         <div class="mUserCenterService_row">
-          <a href="#" v-for="(itme,index) in ali" :key="index">
+          <a href="#" v-for="(itme,index) in ali" :key="index" class="rowfarst">
             <p><img :src="itme.imgUrl"></p>
             <p>{{itme.title}}</p>
           </a>
         </div>
         <div class="mUserCenterService_row">
-          <a href="#" v-for="(itme,index) in towali" :key="index">
+          <a href="#" v-for="(itme,index) in towali" :key="index" class="rowtwo">
             <p><img :src="itme.imgUrl"></p>
             <p>{{itme.title}}</p>
           </a>
@@ -108,6 +111,8 @@ import MyTabs from "../../components/hz.sy.mine/Tabsdata.vue";
 export default {
   data() {
       return {
+        date: '',
+        show: false,
         js:0,
         ulli:['收藏','浏览','动态'],
         mrqd:require('@/assets/images/每日签到@2x.png'),
@@ -180,7 +185,7 @@ export default {
     if(this.$route.params.phone != ':phone') {
       sessionStorage.setItem('phone', this.$route.params.phone);
     }
-  }
+  },
   // computed: {
   //   ...mapState({
   //     bannerList: 'bannerList',
@@ -189,11 +194,15 @@ export default {
   // mounted() {
   //   this.getBannerList()
   // },
-  // methods: {
-  //   ...mapActions([
-  //     'getBannerList'
-  //   ]),
-  // }
+  methods: {
+     formatDate(date) {
+      return `${date.getMonth() + 1}/${date.getDate()}`;
+    },
+    onConfirm(date) {
+      this.show = false;
+      this.date = this.formatDate(date);
+    },
+  }
 };
 </script>
 <style lang='less' scoped>
@@ -338,7 +347,7 @@ export default {
   }
   .mUserCenterService {
     margin-top: 10px;
-    padding: 14px 20px 0 30px;
+    padding: 14px 20px 14px 30px;
     background: #fff;
     .mUserCenterService__head {
       font-size: 16px;
@@ -351,9 +360,15 @@ export default {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        justify-content: space-between;
+        // justify-content: space-between;
         align-items: center;
         // padding-bottom: 60px;
+        .rowfarst{
+          margin-right: 30px;
+        }
+        .rowtwo{
+          margin-right: 30px;
+        }
         img{
           width: 20px;
           height: 20px;
