@@ -208,6 +208,16 @@ export default {
 <style lang='less' scoped>
 .body{
   background: #f7f7f7;
+  /deep/.van-cell {
+    font-size: 16px;
+    line-height: 19px;
+    padding: 0;
+    background-color: rgba(225,225,225,0);
+  }
+
+  /deep/.van-cell__value {
+    display: none;
+  }
   .mUserCenterHeader{
     position: relative;
     padding-left: 15px;

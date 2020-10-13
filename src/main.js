@@ -62,8 +62,6 @@ import './assets/style/reset.less';
 import "./assets/style/travel/banner.css";
 
 import "./assets/style/travel/public.css";
-//reset重置样式文件
-import './assets/style/qj.less';
 Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
