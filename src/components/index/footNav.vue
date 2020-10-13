@@ -54,7 +54,18 @@ export default {
 
   methods: {
     tabs(path) {
+      sessionStorage.setItem('tabInd', this.active);
       this.$router.push(path);
+    }
+  },
+
+  created() {
+    if(!sessionStorage.getItem('tabInd')) {
+      sessionStorage.setItem('tabInd', 0);
+      this.active = sessionStorage.getItem('tabInd');
+    } else {
+      this.active = parseInt(sessionStorage.getItem('tabInd'));
+      console.log(this.active);
     }
   }
 }

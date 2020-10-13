@@ -37,11 +37,17 @@ const routes = [
   {
     path:'/meet',
     component:()=>import('../views/meet.jx/Meetjx.vue'),
-  },
-  {
-    path:'/meet/meetjx',
-    name:'meetjx',
-    component:()=>import('../views/meet.jx/Meetjxs.vue')
+    children: [
+      {
+        path:'/',
+        component:()=>import('../views/meet.jx/Meetjxg.vue')
+      },
+      {
+        path:'/meetjx',
+        name:'meetjx',
+        component:()=>import('../views/meet.jx/Meetjxs.vue')
+      }
+    ]
   },
   {
     path: '/detail/:id',
