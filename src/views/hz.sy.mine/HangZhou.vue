@@ -33,15 +33,16 @@
                         {{ item.title }}
                     </li>
                 </ul>
+                <div class="ul-scenic">
+                    <ul class="ul">
+                        <li v-for="(item,index) in ul_scenic_li[this.activeIndex]" :key="index">
+                            <p><img :src="item.imgUrl"></p>
+                            <p>{{item.title}}</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="ul-scenic">
-                <ul class="ul">
-                    <li v-for="(item,index) in ul_scenic_li" :key="index">
-                        <p><img :src="item.imgUrl"></p>
-                        <p>{{item.title}}</p>
-                    </li>
-                </ul>
-            </div>
+            
         </div> 
         <div class="bottom">
             <div class="ul-particulars ">
@@ -54,18 +55,19 @@
                         <div class="underLine" v-if="particulars_activeIndex === index"></div>
                     </li>
                 </ul>
+                <div class="ul-libertinism">
+                    <ul>   
+                        <li v-for="(item, index) in ul_libertinism_li[this.particulars_activeIndex]" 
+                            :key="index" 
+                            :class="{ libertinism_active: libertinism_activeIndex === index }"
+                            @click="libertinism_Change(index, item.url)">
+                            {{ item.title }}
+                        </li>
+                        <van-icon name="filter-o" />
+                    </ul>
+                </div>
             </div>
-            <div class="ul-libertinism">
-                <ul>   
-                    <li v-for="(item, index) in ul_libertinism_li" 
-                        :key="index" 
-                        :class="{ libertinism_active: libertinism_activeIndex === index }"
-                        @click="libertinism_Change(index, item.url)">
-                        {{ item.title }}
-                    </li>
-                    <van-icon name="filter-o" />
-                </ul>
-            </div>
+            
             <div class="been">
                 <img src="../../assets/images/脚印@2x.png">
                 <span>去过</span> 
@@ -107,23 +109,43 @@ export default {
                 }
             ],
             activeIndex: 0,
-            ul_scenic_li:[
-                {
-                    imgUrl: require('@/assets/images/西湖@2x.png'),
-                    title: '西湖'
-                },
-                {
-                    imgUrl: require('@/assets/images/西湖@2x.png'),
-                    title: '灵隐寺'
-                },
-                {
-                    imgUrl: require('@/assets/images/西湖@2x.png'),
-                    title: '雷峰塔'
-                },
-                {
-                    imgUrl: require('@/assets/images/西湖@2x.png'),
-                    title: '西溪湿地'
-                },
+            ul_scenic_li: [
+                 [
+                    {
+                        imgUrl: require('@/assets/images/西湖@2x.png'),
+                        title: '西湖'
+                    },
+                    {
+                        imgUrl: require('@/assets/images/西湖@2x.png'),
+                        title: '灵隐寺'
+                    },
+                    {
+                        imgUrl: require('@/assets/images/西湖@2x.png'),
+                        title: '雷峰塔'
+                    },
+                    {
+                        imgUrl: require('@/assets/images/西湖@2x.png'),
+                        title: '西溪湿地'
+                    },
+                ],
+                [
+                    {
+                        imgUrl: require('@/assets/images/灵隐寺@2x.png'),
+                        title: '灵隐寺'
+                    },
+                    {
+                        imgUrl: require('@/assets/images/灵隐寺@2x.png'),
+                        title: '灵隐寺'
+                    },
+                    {
+                        imgUrl: require('@/assets/images/灵隐寺@2x.png'),
+                        title: '雷峰塔'
+                    },
+                    {
+                        imgUrl: require('@/assets/images/灵隐寺@2x.png'),
+                        title: '西溪湿地'
+                    },
+                ]
             ],
             ul_particulars_li:[
                 {
@@ -149,26 +171,51 @@ export default {
             ],
             particulars_activeIndex:0,
             ul_libertinism_li:[
-                {
-                    title: '当地玩乐',
-                    url: '/hot'
-                },
-                {
-                    title: '主题玩法',
-                    url: '/hot'
-                },
-                {
-                    title: '自由行',
-                    url: '/hot'
-                },
-                {
-                    title: '同城',
-                    url: '/hot'
-                },
-                {
-                    title: '筛选',
-                    url: '/hot'
-                },
+                [
+                    {
+                        title: '当地玩乐',
+                        url: '/hot'
+                    },
+                    {
+                        title: '主题玩法',
+                        url: '/hot'
+                    },
+                    {
+                        title: '自由行',
+                        url: '/hot'
+                    },
+                    {
+                        title: '同城',
+                        url: '/hot'
+                    },
+                    {
+                        title: '筛选',
+                        url: '/hot'
+                    },
+                ],
+                [
+                    {
+                        title: '主题玩法',
+                        url: '/hot'
+                    },
+                    {
+                        title: '当地玩乐',
+                        url: '/hot'
+                    },
+                    {
+                        title: '自由行',
+                        url: '/hot'
+                    },
+                    {
+                        title: '同城',
+                        url: '/hot'
+                    },
+                    {
+                        title: '筛选',
+                        url: '/hot'
+                    },
+                ]
+                
             ],
             libertinism_activeIndex:0,
             isActives:false
@@ -205,7 +252,7 @@ export default {
     }
     .header{
         position: relative;
-        padding-left: 15px;
+        // padding-left: 15px;
         height: 200px;
         background: url(../../assets/images/杭州背景图@2x.png) 50% no-repeat;
         background-size: cover;
@@ -225,31 +272,31 @@ export default {
         }
         .photography{
             position: absolute;
-            bottom: 50px;
+            bottom: 10px;
             right: 0px;
-            width: 95px;
-            height: 40px;
+            width: 80px;
+            height: 36px;
             background: rgba(39, 39, 40, 0.4);
             border-bottom-left-radius: 25px;
             border-top-left-radius: 25px;
             img{
                 position: absolute;
-                top: 7px;
-                left: 8px;
-                width: 30px; 
+                top: 9px;
+                left: 11px;
+                width: 22px;
             }
             span{
                 position: absolute;
                 right: 8px;
-                top: 7px;
-                font-size: 20px;
+                top: 9px;
+                font-size: 16px;
                 color: #fff;
             }
         }
     }
     .middle{
         background: #fff;
-        margin-top: 10px;
+        // margin-top: 10px;
         border-radius: 10px;
     }
     .header__tow{
@@ -264,7 +311,7 @@ export default {
         padding-top: 13px;
         .van-icon{
             position: absolute;
-            top: 9px;
+            top: 21px;
             right: -3px;
         }
     }
@@ -332,11 +379,15 @@ export default {
             margin: 10px 0 0 11px;
             li{
                 width: 140px;
-                height: 122px;
+                height: 132px;
                 margin-right: 10px;
                 flex-shrink: 0;
                 font-size: 14px;
                 text-align: center;
+                :first-child {
+                    width: 142px;
+                    height: 92px;
+                }
                 img{
                     width: 100%;
                     border-radius: 15px;

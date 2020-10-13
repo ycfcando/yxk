@@ -9,27 +9,28 @@ import "amfe-flexible";
 
 //vant引入和使用
 import {
-  Search,
-  Icon,
-  Swipe,
-  SwipeItem,
-  Grid,
-  GridItem,
-  Tabbar,
-  TabbarItem,
-  List,
-  Cell,
-  Button,
-  GoodsAction, 
-  GoodsActionIcon, 
-  GoodsActionButton,
-  Tab, 
-  Tabs,
-  NavBar,
-  Toast,
-  Lazyload,
-  PullRefresh,
-  Image as VanImage
+    Search,
+    Icon,
+    Swipe,
+    SwipeItem,
+    Grid,
+    GridItem,
+    Tabbar,
+    TabbarItem,
+    List,
+    Cell,
+    Button,
+    GoodsAction,
+    GoodsActionIcon,
+    GoodsActionButton,
+    Tab,
+    Tabs,
+    NavBar,
+    Toast,
+    Lazyload,
+    PullRefresh,
+    Image as VanImage,
+    Calendar
 } from "vant";
 Vue.use(Cell);
 Vue.use(Search);
@@ -53,6 +54,7 @@ Vue.use(Toast);
 Vue.use(Lazyload);
 Vue.use(PullRefresh);
 Vue.use(VanImage);
+Vue.use(Calendar);
 
 //reset重置样式文件
 import './assets/style/reset.less';
@@ -60,29 +62,30 @@ import './assets/style/reset.less';
 import "./assets/style/travel/banner.css";
 
 import "./assets/style/travel/public.css";
-
+//reset重置样式文件
+import './assets/style/qj.less';
 Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
 
-  // chrome
-  
-  document.body.scrollTop = 0;
-    
-  // firefox
-    
-  document.documentElement.scrollTop = 0;
-    
-  // safari
-    
-  window.pageYOffset = 0;
-    
-  next();
-  
+    // chrome
+
+    document.body.scrollTop = 0;
+
+    // firefox
+
+    document.documentElement.scrollTop = 0;
+
+    // safari
+
+    window.pageYOffset = 0;
+
+    next();
+
 })
 
 new Vue({
-  router,
-  store,
-  render: (h) => h(App),
+    router,
+    store,
+    render: (h) => h(App),
 }).$mount("#app");
