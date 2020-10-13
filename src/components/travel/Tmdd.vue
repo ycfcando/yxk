@@ -25,8 +25,8 @@ export default {
   props: ["mddList"],
   watch: {
     mddList() {
-      this.dong(); 
-    }
+      this.dong();
+    },
   },
   methods: {
     dong() {
@@ -77,11 +77,13 @@ export default {
       width: 100px;
       height: 135px;
       margin: 0 10px;
-      background: #000;
+      background: rgba(5, 109, 109, 0.575);
+      border-radius: 10px;
       > img {
         position: absolute;
         width: 100%;
         height: 100%;
+        border-radius: 10px;
       }
       > p {
         position: absolute;

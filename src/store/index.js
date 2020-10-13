@@ -8,6 +8,9 @@ import {
   getTravelT,
   getTravelG,
   getTravelC,
+  getTravelCc,
+  getTravelTt,
+  getTravelGg,
 } from "../utils/api";
 
 export default new Vuex.Store({
@@ -18,10 +21,13 @@ export default new Vuex.Store({
     guoList: [],
     jingList: [],
     travelList: {
-      Z:"周边游",
-      G:"国内游",
-      C:"出境游"
+      Z: "周边游",
+      G: "国内游",
+      C: "出境游",
     },
+    ccList: [],
+    ttList: [],
+    ggList: [],
   },
   mutations: {
     //index数据
@@ -37,15 +43,29 @@ export default new Vuex.Store({
       state.tongList = payload.data;
       console.log(state.tongList);
     },
-    //国内游
+    //同城游列表
+    getTravelTt(state, payload) {
+      state.ttList = state.ttList.concat(payload);
+    },
+
+    //国内游数据
     getGuoList(state, payload) {
       state.guoList = payload.data;
       console.log(state.guoList);
     },
-    //出境游
+    //列表
+    getTravelGg(state, payload) {
+      state.ggList = state.ggList.concat(payload);
+    },
+
+    //出境游数据
     getJingList(state, payload) {
       state.jingList = payload.data;
       console.log(state.jingList);
+    },
+    //出境游列表
+    getTravelCc(state, payload) {
+      state.ccList = state.ccList.concat(payload);
     },
   },
   actions: {
@@ -69,21 +89,57 @@ export default new Vuex.Store({
           console.log(error);
         });
     },
+    /* --------------------------------------------- */
     //同城游数据
     async getTongList({ commit }) {
       const res = await getTravelT();
       commit("getTongList", res.data);
     },
+    //同城游列表
+    getTravelTt({ commit }, params) {
+      getTravelTt("", params)
+        .then((res) => {
+          commit("getTravelTt", res.data.data.data.list);
+          console.log(res.data.data.data.list);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    /* --------------------------------------------- */
     //国内游
     async getGuoList({ commit }) {
       const res = await getTravelG();
       commit("getGuoList", res.data);
     },
+
+    //国内游列表
+    getTravelGg({ commit }, params) {
+      getTravelGg("", params)
+        .then((res) => {
+          commit("getTravelGg", res.data.data.data.list);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    /* --------------------------------------------- */
     //出境游
     async getJingList({ commit }) {
       const res = await getTravelC();
       commit("getJingList", res.data);
     },
+    //出境游列表
+    getTravelCc({ commit }, params) {
+      getTravelCc("", params)
+        .then((res) => {
+          commit("getTravelCc", res.data.data.data.list);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    /* --------------------------------------------- */
   },
   modules: {},
 });

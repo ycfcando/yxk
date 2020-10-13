@@ -94,6 +94,7 @@ export default {
     height: 155px;
     margin: auto;
     border-radius: 20px;
+    background: rgb(1, 75, 62);
     .my-swipe .van-swipe-item {
       width: 100%;
       height: 155px;

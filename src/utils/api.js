@@ -23,18 +23,33 @@ export function getIcon(url, params) {
 export function getFlow(url, params) {
   return http.get("/api/index/flowrecommend", params);
 }
-
+/* --------------------------------------------------------- */
 //travel
-//同城游
+
+//周边游
 export function getTravelT(url, params) {
   return http.get("/api/channel/around?sitecode=1&city_id=1", params);
+}
+//列表
+export function getTravelTt(url, params) {
+  return http.get("api/newchannel/around/flow", params);
 }
 
 //国内游
 export function getTravelG(url, params) {
   return http.get("api/channel/cn?sitecode=1&city_id=1", params);
 }
+//列表
+export function getTravelGg(url, params) {
+  return http.get("api/newchannel/cn/flow", params);
+}
+
 //出境游
 export function getTravelC(url, params) {
   return http.get("api/channel/en?sitecode=1&city_id=1", params);
 }
+//列表
+export function getTravelCc(url, params) {
+  return http.get("/api/newchannel/en/flow", params);
+}
+/* --------------------------------------------------------- */
