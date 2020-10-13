@@ -23,7 +23,11 @@ export function getIcon(url, params) {
 export function getFlow(url, params) {
   return http.get("/api/index/flowrecommend", params);
 }
-/* --------------------------------------------------------- */
+
+export function getDetailInfo(url, params) {
+  return http.get("/api/lines/lineStatus", params);
+}
+
 //travel
 
 //周边游
@@ -52,4 +56,25 @@ export function getTravelC(url, params) {
 export function getTravelCc(url, params) {
   return http.get("/api/newchannel/en/flow", params);
 }
-/* --------------------------------------------------------- */
+//遇见数据1
+export function getHotList(url, params) {
+  return http.get('https://www.fastmock.site/mock/141b01ad0a4a46db6d5c4c5b1d9a899b/yxk/meet/hotlist', params);
+}
+//遇见数据2
+export function getTopicList(url, params) {
+  return http.get('https://www.fastmock.site/mock/141b01ad0a4a46db6d5c4c5b1d9a899b/yxk/meet/topiclist', params);
+}
+// mine页面请求数据
+export function getBanner(params) {
+    return http.get('/api/lines/userrecommends', params)
+}
+
+//login
+export function getYzm(params) {
+  return http.post('http://www.pudge.wang:3001/register/getCode', params)
+}
+
+export function login(params) {
+  return http.post('http://www.pudge.wang:3001/register', params)
+}
+

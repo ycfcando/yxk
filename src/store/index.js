@@ -11,6 +11,8 @@ import {
   getTravelCc,
   getTravelTt,
   getTravelGg,
+  getBanner, 
+  getDetailInfo
 } from "../utils/api";
 
 export default new Vuex.Store({
@@ -28,6 +30,9 @@ export default new Vuex.Store({
     ccList: [],
     ttList: [],
     ggList: [],
+    bannerList: [], //我的页面请求数据
+    // page: 1,
+    detailInfo: {}
   },
   mutations: {
     //index数据
@@ -67,6 +72,17 @@ export default new Vuex.Store({
     getTravelCc(state, payload) {
       state.ccList = state.ccList.concat(payload);
     },
+    //mine数据1
+    getBannerList(state, payload) {
+      // console.log(payload);
+      // state.bannerList = state.bannerList.concat(payload)
+      state.bannerList = payload
+          // state.page++
+    },
+    //detail数据
+    getDetailInfo(state, payload) {
+        state.detailInfo = payload;
+    }
   },
   actions: {
     //index数据
@@ -139,6 +155,20 @@ export default new Vuex.Store({
           console.log(error);
         });
     },
+    //mine数据1
+    async getBannerList({ commit }, payload) {
+      // console.log(payload)
+      const res = await getBanner(payload)
+
+      commit('getBannerList', res.data.data)
+    },
+    //detail 数据
+    async getDetailInfo({ commit }, payload) {
+      // const res = await getDetailInfo(payload)
+      const res = await getDetailInfo('', {pid: payload});
+
+      commit('getDetailInfo', res.data);
+    }
     /* --------------------------------------------- */
   },
   modules: {},

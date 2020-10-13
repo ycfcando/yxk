@@ -2,9 +2,10 @@
   <div class="week">
     <nav>
       <span 
-      v-for="(val, ind) in weekList" 
-      :key="ind" 
-      @click="changeData(ind)"
+        v-for="(val, ind) in weekList" 
+        :key="ind" 
+        @click="changeData(ind)"
+        :class="{active: dataIndex == ind}"
       >
         {{ val.title }}
       </span>
@@ -12,6 +13,7 @@
     <van-swipe 
       class="my-swipe"
       indicator-color="white"
+      :loop="false"
     >
       <van-swipe-item 
         v-for="(val, ind) in item" 
@@ -94,6 +96,10 @@ export default {
       border-radius: 15px;
       padding: 0 5px;
       line-height: 25px;
+    }
+    .active {
+      font-weight: 600;
+      color: #e6ac00;
     }
   }
   .my-swipe {

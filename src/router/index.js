@@ -32,15 +32,30 @@ const routes = [
   },
   {
     path: "/hangzhou",
+    component: () => import ('../views/hz.sy.mine/HangZhou.vue')
   },
   {
-    path: "/meet",
+    path:'/meet',
+    component:()=>import('../views/meet.jx/Meetjx.vue'),
+    children: [
+      {
+        path:'/',
+        component:()=>import('../views/meet.jx/Meetjxg.vue')
+      },
+      {
+        path:'/meetjx',
+        name:'meetjx',
+        component:()=>import('../views/meet.jx/Meetjxs.vue')
+      }
+    ]
+  },
+  {
+    path: '/detail/:id',
+    name:'detail',
+    component:()=>import('../views/detail/Detail.vue')
   },
   {
     path: "/community",
-  },
-  {
-    path: "/mine",
   },
   {
     path: "/Zindex",
@@ -54,6 +69,18 @@ const routes = [
     path: "/Gindex",
     component: () => import("../views/travel/Gindex.vue"),
   },
+  {
+    path: '/mine/:phone',
+    component: () => import ('../views/hz.sy.mine/Home.vue')
+  },
+  {
+    path: '/detail/:id',
+    component: () => import ('../views/hz.sy.mine/Detail.vue')
+  },
+  {
+    path: '/login',
+    component: () => import ('../views/login/login.vue')
+  }
 ];
 
 const router = new VueRouter({
