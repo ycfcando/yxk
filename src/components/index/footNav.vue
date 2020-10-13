@@ -39,7 +39,8 @@ export default {
         },{
           img: require('../../assets/icon/index/shequ1.png'),
           imgH: require('../../assets/icon/index/shequ2.png'),
-          name: '社区'
+          name: '社区',
+          path: '/community'
         },
         {
           img: require('../../assets/icon/index/wode1.png'),
