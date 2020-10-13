@@ -112,7 +112,7 @@ export default new Vuex.Store({
       // const res = await getDetailInfo(payload)
       const res = await getDetailInfo('', {pid: payload});
 
-      commit('getDetailInfo', res);
+      commit('getDetailInfo', res.data);
     }
   },
   modules: {},
