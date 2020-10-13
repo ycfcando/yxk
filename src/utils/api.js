@@ -65,3 +65,8 @@ export function login(params) {
   return http.post('http://www.pudge.wang:3001/register', params)
 }
 
+// 社区
+export function getComtabs(params) {
+  return http.post('https://www.fastmock.site/mock/141b01ad0a4a46db6d5c4c5b1d9a899b/yxk/community', params)
+}
+

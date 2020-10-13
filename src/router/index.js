@@ -50,6 +50,8 @@ const routes = [
   },
   {
     path: "/community",
+    name:'community',
+    component:()=>import('../views/community/Community.vue')
   },
   {
     path: "/Zindex",
