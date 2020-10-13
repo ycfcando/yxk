@@ -71,7 +71,7 @@ export default {
   bottom: 0;
   right: 0;
   background-color: #fff;
-  z-index: 2;
+  z-index: 99;
   display: flex;
   flex-direction: column;
   align-items: center;

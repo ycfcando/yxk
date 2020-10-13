@@ -1,5 +1,5 @@
 <template>
-  <van-tabbar v-model="active" :placeholder='true' active-color="#000">
+  <van-tabbar v-model="active" :placeholder='true' active-color="#000" class="footNav">
     <van-tabbar-item 
       v-for="(val, ind) of fIcon" 
       :key="ind"
@@ -80,6 +80,7 @@ export default {
   left: 0;
   height: 55px;
   background-color: white;
+  z-index: 98;
   > div {
     flex-grow: 1;
     display: flex;

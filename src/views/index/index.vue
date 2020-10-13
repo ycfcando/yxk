@@ -198,6 +198,7 @@ export default {
       img {
         display: block;
         width: 100%;
+        height: 155px;
       }
     }
   }
