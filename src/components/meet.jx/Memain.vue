@@ -192,6 +192,7 @@ export default {
                     }
                     p:nth-of-type(2){
                         background-color: aliceblue;
+                        opacity: .5;
                         text-align: center;
                         top:35px;
                         margin-left: 20px;

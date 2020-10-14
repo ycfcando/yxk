@@ -63,7 +63,7 @@ export default {
   created() {
     if(!sessionStorage.getItem('tabInd')) {
       sessionStorage.setItem('tabInd', 0);
-      this.active = sessionStorage.getItem('tabInd');
+      this.active = parseInt(sessionStorage.getItem('tabInd'));
     } else {
       this.active = parseInt(sessionStorage.getItem('tabInd'));
       console.log(this.active);

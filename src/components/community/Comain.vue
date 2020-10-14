@@ -23,7 +23,7 @@
                 <aside v-for="(item,index) in list" :key="index">
                     
                     <p>{{item.title}}</p>
-                    <img :src="item.imgurl" alt="">
+                    <img src="https://file.40017.cn/appresource/image/touch/home/icon_hotel.png" alt="">
                 </aside>
             </article>
         </section>

@@ -68,11 +68,12 @@ export default {
         .van-search{
             width: 280px;
             // margin: auto;
-            border-radius: 12px;
+            border-radius: 10px;
             padding: 5px;
             height: 30px; 
             .van-search__content{
-                border-radius: 12px;
+                background-color: #fff;
+                border-radius: 10px;
             }
         }
         .me-search{
