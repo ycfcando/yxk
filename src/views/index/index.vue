@@ -16,7 +16,7 @@
     <div class="banner">
       <van-swipe class="my-swipe" :autoplay="3000" indicator-color="#fed101">
         <van-swipe-item v-for="(val, ind) in bannerItem" :key="ind">
-          <img :src="val.image" />
+          <img :src="imgArr[ind]" />
         </van-swipe-item>
       </van-swipe>
     </div>
@@ -84,6 +84,16 @@ export default {
       // bannerItem: [],
       staticData: {},
       act: 0,
+      imgArr: [
+        require('../../assets/images/b1.jpg'),
+        require('../../assets/images/b2.jpg'),
+        require('../../assets/images/b3.jpg'),
+        require('../../assets/images/b4.jpg'),
+        require('../../assets/images/b5.jpg'),
+        require('../../assets/images/b6.jpg'),
+        require('../../assets/images/b7.jpg'),
+        require('../../assets/images/b8.jpg')
+      ]
     };
   },
 

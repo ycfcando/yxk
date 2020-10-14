@@ -11,7 +11,7 @@
 
         <section class="swipers">
             <van-swipe :autoplay="3000">
-                <van-swipe-item v-for="(image, index) in images" :key="index">
+                <van-swipe-item v-for="(image, index) in imgArr" :key="index">
                     <img v-lazy="image" />
                 </van-swipe-item>
             </van-swipe>
@@ -30,7 +30,7 @@
 
         <section class="Spiderman">
             <div class="sp-top">
-                <img src="http://gallery.youxiake.com/Public/Data/upload/productimg/202010/13/5f851c72514bb.jpg?imageslim" alt="">
+                <img src="../../assets/images/bfjl.jpg" alt="">
             </div>
             <div class="sq-title">疫情过去，我们去旅行吧（北方）</div>
             <div class="sq-bottom">
@@ -175,13 +175,13 @@ Vue.use(Lazyload);
 export default {
    data() {
     return {
-      images: [
-        'https://qimg4.youxiake.com/upload/202009/17/27601600321473.jpg?imageslim',
-        'https://qimg4.youxiake.com/upload/202009/10/99361599710392.jpg?imageslim',
-        'https://qimg4.youxiake.com/upload/202009/17/27601600321473.jpg?imageslim',
-        'https://qimg4.youxiake.com/upload/202009/10/99361599710392.jpg?imageslim',
-        'https://qimg4.youxiake.com/upload/202009/17/27601600321473.jpg?imageslim',
-        'https://qimg4.youxiake.com/upload/202009/10/99361599710392.jpg?imageslim',
+      imgArr: [
+        require('../../assets/images/b3.jpg'),
+        require('../../assets/images/b4.jpg'),
+        require('../../assets/images/b5.jpg'),
+        require('../../assets/images/b6.jpg'),
+        require('../../assets/images/b7.jpg'),
+        require('../../assets/images/b8.jpg')
       ],
       value:'',
       list:[],
