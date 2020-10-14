@@ -8,7 +8,7 @@
       <li 
         v-for="(val, ind) in minorityData"
         :key="ind"
-        :style="{'background-image': 'url('+ val.image +')'}"
+        :style="{'background-image': 'url('+ imgArr[ind] +')'}"
       >
         <h4>{{ val.title }}</h4>
         <p>{{ val.subTitle }}</p>
@@ -20,6 +20,20 @@
 <script>
 
 export default {
+
+  data() {
+    return {
+      imgArr: [
+        require('../../assets/images/dest/b1.jpg'),
+        require('../../assets/images/dest/b2.jpg'),
+        require('../../assets/images/dest/b3.jpg'),
+        require('../../assets/images/dest/b4.jpg'),
+        require('../../assets/images/dest/b5.jpg'),
+        require('../../assets/images/dest/b6.jpg'),
+      ]
+    }
+  },
+
   computed: {
     minorityTitle() {
       if(this.$store.state.indexData.minority) {

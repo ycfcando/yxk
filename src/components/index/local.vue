@@ -3,18 +3,18 @@
     <div>
       <div class="top" v-if="localData.upList">
         <article class="left">
-          <img :src="localData.upList[0].image">
+          <img src="../../assets/images/hot1.jpg">
           <p>{{ localData.upList[0].subTitle }}</p>
           <span>{{ localData.upList[0].title }}</span>
         </article>
         <article class="right">
-          <img :src="localData.upList[1].image">
+          <img src="../../assets/images/hot2.jpg">
           <span>{{ localData.upList[1].title }}</span>
         </article>
       </div>
       <ul class="bottom">
         <li v-for="(val, ind) in localData.downList" :key="ind">
-          <img :src="val.image">
+          <img src="../../assets/images/hot3.jpg">
           <p>{{ val.title }}</p>
           <p>{{ val.subTitle }}</p>
         </li>

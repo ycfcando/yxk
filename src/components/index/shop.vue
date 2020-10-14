@@ -11,7 +11,7 @@
             <div>
               <h4>{{ val.title }}</h4>
               <div class="img">
-                <img :src="val.image">
+                <img :src="bArr[ind]">
                 <p>{{ val.productName }}</p>
                 <p>
                   <span>￥{{ val.priceLabel }}起</span>
@@ -46,7 +46,7 @@
       <li 
         v-for="(val, ind) in activityBanner"
         :key="ind"
-        :style="{'background-image': 'url('+ val.image +')'}"
+        :style="{'background-image': 'url('+ imgArr[ind] +')'}"
       >
         <p>{{ val.title }}</p>
         <p>{{ val.subTitle }}</p>
@@ -58,6 +58,22 @@
 <script>
 
 export default {
+
+  data() {
+    return {
+      imgArr: [
+        require('../../assets/images/banner/banner1.png'),
+        require('../../assets/images/banner/banner2.png'),
+        require('../../assets/images/banner/banner3.png')
+      ],
+      bArr: [
+        require('../../assets/images/dest/b7.jpg'),
+        require('../../assets/images/dest/b8.jpg'),
+        require('../../assets/images/dest/b9.jpg')
+      ]
+    }
+  },
+
   computed: {
     flashSales() {
       return this.$store.state.indexData.saleProductList;

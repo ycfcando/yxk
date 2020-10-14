@@ -1,5 +1,5 @@
 <template>
-  <div class="minority">
+  <div class="dest">
     <div class="head">
       <p>{{ desTitle.title }}</p>
       <p>{{ desTitle.subTitle }}</p>
@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.minority {
+.dest {
   background-color: #fff;
   margin-top: 10px;
   border-radius: 10px;

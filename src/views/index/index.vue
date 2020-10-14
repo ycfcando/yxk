@@ -57,7 +57,9 @@
         </button>
       </div>
       <div class="content">
-        <router-view></router-view>
+        <!-- <router-view></router-view> -->
+        <local v-if="act"/>
+        <week v-else/>
       </div>
     </div>
 
@@ -77,6 +79,8 @@ import shop from "../../components/index/shop";
 import minority from "../../components/index/minority";
 import dest from "../../components/index/dest";
 import flowTab from "../../components/index/flowTab";
+import local from "../../components/index/local";
+import week from "../../components/index/week";
 
 export default {
   data() {
@@ -128,7 +132,6 @@ export default {
   methods: {
     pathTab(ind) {
       this.act = ind;
-      ind ? this.$router.push('/local') : this.$router.push('/week');
     },
 
     travelTab(path) {
@@ -141,6 +144,8 @@ export default {
     minority,
     dest,
     flowTab,
+    local,
+    week
   },
 };
 </script>

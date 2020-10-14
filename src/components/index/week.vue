@@ -22,7 +22,7 @@
         <ul class="item">
           <li v-for="(v, i) in val" :key="i">
             <div class="img">
-              <img :src="v.image">
+              <img :src="imgArr[i]">
               <p>
                 <span>{{ v.placeLabel }}</span>
                 <span>{{ v.days }}</span>
@@ -43,7 +43,26 @@ export default {
 
   data() {
     return {
-      dataIndex: 0
+      dataIndex: 0,
+      imgArr: [
+        require('../../assets/images/weeklocal/item1.jpg'),
+        require('../../assets/images/weeklocal/item2.jpg'),
+        require('../../assets/images/weeklocal/item3.jpg'),
+        require('../../assets/images/weeklocal/item4.jpg'),
+        require('../../assets/images/weeklocal/item5.jpg'),
+        require('../../assets/images/weeklocal/item6.jpg'),
+        require('../../assets/images/weeklocal/item7.jpg'),
+        require('../../assets/images/weeklocal/item8.jpg'),
+        require('../../assets/images/weeklocal/item9.jpg'),
+        require('../../assets/images/weeklocal/item10.jpg'),
+        require('../../assets/images/weeklocal/item11.jpg'),
+        require('../../assets/images/weeklocal/item12.jpg'),
+        require('../../assets/images/weeklocal/item14.png'),
+        require('../../assets/images/weeklocal/item15.jpg'),
+        require('../../assets/images/weeklocal/item16.jpg'),
+        require('../../assets/images/weeklocal/item17.jpg'),
+        require('../../assets/images/weeklocal/item18.jpg')
+      ]
     }
   },
   
